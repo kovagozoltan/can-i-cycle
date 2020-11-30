@@ -1,0 +1,8 @@
+#forecast {
+  width: 90%;
+  border-radius: 10%;
+}
+
+.day, .place {
+  font-size: 1.5em;
+}

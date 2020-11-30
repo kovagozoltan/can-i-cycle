@@ -1,0 +1,283 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="dayToShow == 1" (click)="dayToShow = 1"> {{todayPlusOne}} </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="dayToShow == 2" (click)="dayToShow = 2"> {{todayPlusTwo}} </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="dayToShow == 3" (click)="dayToShow = 3"> {{todayPlusThree}} </a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="card-body" *ngIf="dayToShow == 1">
+    <h5 class="card-title"> {{todayPlusOne}} </h5>
+
+    <div class="accordion" id="accordion">
+      <div class="card" *ngFor=" let keys of dayOneKeys">
+        <div class="card-header p-0" [attr.id]="'card' + keys">
+          <h2 class="mb-0">
+            <div class="btn btn-link btn-block text-left pt-0 pb-0" type="button" data-toggle="collapse" [attr.data-target]="'#collapse' + keys" aria-expanded="false" [attr.aria-controls]="'collapse' + keys">
+              <div class="row font-weight-bold text-dark">
+                <div class="col-4 text-center pl-2 pr-0 d-flex align-items-center">
+                  {{ weather['forecast']['forecastday']['0']['hour'][keys]['time'] }}
+                </div>
+                <div class="col text-center">
+
+                  <!-- <svg name="caret-down"  data-testid="Icon" viewBox="0 0 24 25"><path d="M12 16.086l7.293-7.293a1 1 0 1 1 1.414 1.414l-8 8a1 1 0 0 1-1.414 0l-8-8a1 1 0 1 1 1.414-1.414L12 16.086z"></path></svg>
+                  <svg name="caret-up" data-testid="Icon" viewBox="0 0 24 25"><path d="M12 8.914l7.293 7.293a1 1 0 1 0 1.414-1.414l-8-8a1 1 0 0 0-1.414 0l-8 8a1 1 0 1 0 1.414 1.414L12 8.914z"></path></svg> -->
+
+                </div>
+                <div class="col-4 temp text-center">
+                  <img src="{{ weather['forecast']['forecastday']['0']['hour'][keys]['condition']['icon'] }}">
+                  {{ weather['forecast']['forecastday']['0']['hour'][keys]['temp_c'] }} <sup>°C</sup>
+                </div>
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div [attr.id]="'collapse' + keys" class="collapse" [attr.aria-labelledby]="'card' + keys" data-parent="#accordion">
+          <div class="card-body">
+            <div class="row ">
+              <div class="col">
+                <div>
+                  visibility
+                </div>
+                <div>
+                  <i class="wi wi-windy"></i> {{ weather['forecast']['forecastday']['0']['hour'][keys]['vis_km'] }}
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  feel
+                </div>
+                <div>
+                  <i class="wi wi-thermometer"></i> {{ weather['forecast']['forecastday']['0']['hour'][keys]['feelslike_c'] }} <sup>°C</sup>
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  humidity
+                </div>
+                <div>
+                  <i class="wi wi-humidity"></i> {{ weather['forecast']['forecastday']['0']['hour'][keys]['humidity'] }}
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="row">
+              <div class="col">
+                <div>
+                  wind
+                </div>
+                <div>
+                  <i class="wi wi-strong-wind"></i> {{ weather['forecast']['forecastday']['0']['hour'][keys]['wind_kph'] }} kph
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  rain
+                </div>
+                <div>
+                  <i class="wi wi-showers"></i> {{ weather['forecast']['forecastday']['0']['hour'][keys]['chance_of_rain'] }} %
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  precip
+                </div>
+                <div>
+                  <i class="wi wi-raindrops"></i> {{ weather['forecast']['forecastday']['0']['hour'][keys]['precip_mm'] }} mm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body" *ngIf="dayToShow == 2">
+    <h5 class="card-title"> {{todayPlusTwo}} </h5>
+
+    <div class="accordion" id="accordion2">
+      <div class="card" *ngFor=" let keys of dayTwoKeys">
+        <div class="card-header p-0" [attr.id]="'card' + keys">
+          <h2 class="mb-0">
+            <div class="btn btn-link btn-block text-left pt-0 pb-0" type="button" data-toggle="collapse" [attr.data-target]="'#collapse' + keys" aria-expanded="false" [attr.aria-controls]="'collapse' + keys">
+              <div class="row font-weight-bold text-dark">
+                <div class="col-4 text-center pl-2 pr-0 d-flex align-items-center">
+                  {{ weather['forecast']['forecastday']['1']['hour'][keys]['time'] }}
+                </div>
+                <div class="col text-center">
+
+                  <!-- <svg name="caret-down"  data-testid="Icon" viewBox="0 0 24 25"><path d="M12 16.086l7.293-7.293a1 1 0 1 1 1.414 1.414l-8 8a1 1 0 0 1-1.414 0l-8-8a1 1 0 1 1 1.414-1.414L12 16.086z"></path></svg>
+                  <svg name="caret-up" data-testid="Icon" viewBox="0 0 24 25"><path d="M12 8.914l7.293 7.293a1 1 0 1 0 1.414-1.414l-8-8a1 1 0 0 0-1.414 0l-8 8a1 1 0 1 0 1.414 1.414L12 8.914z"></path></svg> -->
+
+                </div>
+                <div class="col-4 temp text-center">
+                  <img src="{{ weather['forecast']['forecastday']['1']['hour'][keys]['condition']['icon'] }}">
+                  {{ weather['forecast']['forecastday']['1']['hour'][keys]['temp_c'] }} <sup>°C</sup>
+                </div>
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div [attr.id]="'collapse' + keys" class="collapse" [attr.aria-labelledby]="'card' + keys" data-parent="#accordion2">
+          <div class="card-body">
+            <div class="row ">
+              <div class="col">
+                <div>
+                  visibility
+                </div>
+                <div>
+                  <i class="wi wi-windy"></i> {{ weather['forecast']['forecastday']['1']['hour'][keys]['vis_km'] }}
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  feel
+                </div>
+                <div>
+                  <i class="wi wi-thermometer"></i> {{ weather['forecast']['forecastday']['1']['hour'][keys]['feelslike_c'] }} <sup>°C</sup>
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  humidity
+                </div>
+                <div>
+                  <i class="wi wi-humidity"></i> {{ weather['forecast']['forecastday']['1']['hour'][keys]['humidity'] }}
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="row">
+              <div class="col">
+                <div>
+                  wind
+                </div>
+                <div>
+                  <i class="wi wi-strong-wind"></i> {{ weather['forecast']['forecastday']['1']['hour'][keys]['wind_kph'] }} kph
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  rain
+                </div>
+                <div>
+                  <i class="wi wi-showers"></i> {{ weather['forecast']['forecastday']['1']['hour'][keys]['chance_of_rain'] }} %
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  precip
+                </div>
+                <div>
+                  <i class="wi wi-raindrops"></i> {{ weather['forecast']['forecastday']['1']['hour'][keys]['precip_mm'] }} mm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body" *ngIf="dayToShow == 3">
+    <h5 class="card-title"> {{todayPlusThree}} </h5>
+
+    <div class="accordion" id="accordion3">
+      <div class="card" *ngFor=" let keys of dayTwoKeys">
+        <div class="card-header p-0" [attr.id]="'card' + keys">
+          <h2 class="mb-0">
+            <div class="btn btn-link btn-block text-left pt-0 pb-0" type="button" data-toggle="collapse" [attr.data-target]="'#collapse' + keys" aria-expanded="false" [attr.aria-controls]="'collapse' + keys">
+              <div class="row font-weight-bold text-dark">
+                <div class="col-4 text-center pl-2 pr-0 d-flex align-items-center">
+                  {{ weather['forecast']['forecastday']['2']['hour'][keys]['time'] }}
+                </div>
+                <div class="col text-center">
+
+                  <!-- <svg name="caret-down"  data-testid="Icon" viewBox="0 0 24 25"><path d="M12 16.086l7.293-7.293a1 1 0 1 1 1.414 1.414l-8 8a1 1 0 0 1-1.414 0l-8-8a1 1 0 1 1 1.414-1.414L12 16.086z"></path></svg>
+                  <svg name="caret-up" data-testid="Icon" viewBox="0 0 24 25"><path d="M12 8.914l7.293 7.293a1 1 0 1 0 1.414-1.414l-8-8a1 1 0 0 0-1.414 0l-8 8a1 1 0 1 0 1.414 1.414L12 8.914z"></path></svg> -->
+
+                </div>
+                <div class="col-4 temp text-center">
+                  <img src="{{ weather['forecast']['forecastday']['2']['hour'][keys]['condition']['icon'] }}">
+                  {{ weather['forecast']['forecastday']['2']['hour'][keys]['temp_c'] }} <sup>°C</sup>
+                </div>
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div [attr.id]="'collapse' + keys" class="collapse" [attr.aria-labelledby]="'card' + keys" data-parent="#accordion3">
+          <div class="card-body">
+            <div class="row ">
+              <div class="col">
+                <div>
+                  visibility
+                </div>
+                <div>
+                  <i class="wi wi-windy"></i> {{ weather['forecast']['forecastday']['2']['hour'][keys]['vis_km'] }}
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  feel
+                </div>
+                <div>
+                  <i class="wi wi-thermometer"></i> {{ weather['forecast']['forecastday']['2']['hour'][keys]['feelslike_c'] }} <sup>°C</sup>
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  humidity
+                </div>
+                <div>
+                  <i class="wi wi-humidity"></i> {{ weather['forecast']['forecastday']['2']['hour'][keys]['humidity'] }}
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="row">
+              <div class="col">
+                <div>
+                  wind
+                </div>
+                <div>
+                  <i class="wi wi-strong-wind"></i> {{ weather['forecast']['forecastday']['2']['hour'][keys]['wind_kph'] }} kph
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  rain
+                </div>
+                <div>
+                  <i class="wi wi-showers"></i> {{ weather['forecast']['forecastday']['2']['hour'][keys]['chance_of_rain'] }} %
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  precip
+                </div>
+                <div>
+                  <i class="wi wi-raindrops"></i> {{ weather['forecast']['forecastday']['2']['hour'][keys]['precip_mm'] }} mm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

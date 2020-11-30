@@ -1,0 +1,12 @@
+.accordion .temp {
+  font-size: 1.3em;
+}
+
+.accordion .btn.btn-link:focus {
+  outline: 0;
+  text-decoration: none;
+}
+
+.accordion svg {
+  width: 60%;
+}

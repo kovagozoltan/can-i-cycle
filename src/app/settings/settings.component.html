@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+      <form class="form">
+        <div class="form-group">
+          <label class="font-weight-bold">Location</label>
+          <p *ngIf="!edit">{{settings.location}}</p>
+          <input *ngIf="edit" [(ngModel)]="settings.location" name="location" type="location" required class="form-control rounded-0">
+        </div>
+        <button *ngIf="!edit" class="btn btn-secondary" (click)="edit = true">Edit</button>
+        <button *ngIf="edit" (click)="applySettings()" type="button" class="btn btn-success">Apply</button>
+        <button *ngIf="edit" (click)="edit = false" type="button" class="btn btn-danger">Cancel</button>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

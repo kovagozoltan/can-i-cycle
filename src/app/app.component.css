@@ -1,0 +1,8 @@
+.navButton, .navButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navButtonCursor {
+  cursor: initial !important;
+}
