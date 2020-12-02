@@ -12,6 +12,7 @@ export class CurrentWeatherComponent implements OnInit {
   todayPlusTwo;
   todayPlusThree;
   today;
+  firstTimeUser;
 
   weather =  {};
   weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satuday']
@@ -20,6 +21,9 @@ export class CurrentWeatherComponent implements OnInit {
   ngOnInit() {
     this.WEATHERSERVICE.getWeather().subscribe( data => {
       this.weather = data;
+      if (this.weather['error']) {
+        this.firstTimeUser = true;
+      }
     });
 
     this.today = this.weekDays[ new Date().getDay() ];

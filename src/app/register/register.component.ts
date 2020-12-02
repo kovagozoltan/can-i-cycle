@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class RegisterComponent implements OnInit {
 
   registerUserData = { username: '', email: '', password: ''};
+  error;
 
   constructor(private AUTHSERVICE: AuthService, private ROUTER: Router) { }
 
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
         this.ROUTER.navigate(['/weather']);
       },
       error => {
-        console.log(error.error.error);
+        this.error = error.error.message;
       }
     );
   }

@@ -5,3 +5,16 @@
 .card {
   border-radius: 10%;
 }
+
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid darkgrey;
+  outline: none;
+}
+
+input:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

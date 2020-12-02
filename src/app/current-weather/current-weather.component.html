@@ -1,78 +1,72 @@
-<div class="text-center mt-5 mb-5">
-  <p class="display-4"> {{ weather['current']['condition']['text'] }} </p>
-
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col">
-      <div class="col d-flex align-items-center">
-
-          <img src={{weather.current.condition.icon}} class="mx-auto">
-
-
+<div *ngIf="!firstTimeUser">
+  <div class="text-center mt-5 mb-5">
+    <p class="display-4"> {{ weather['current']['condition']['text'] }} </p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <div class="col d-flex align-items-center">
+          <img src="{{ weather['current']['condition']['icon'] }}" class="mx-auto">
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row mb-1">
+      <p class="mx-auto place">{{ weather['location']['name'] }}</p>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <h2 class="display-2 text-center"> {{ weather['current']['temp_c'] }}<sup>°C</sup></h2>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row ">
+      <div class="col text-center">
+        <p class="day"> {{ this.today }} </p>
       </div>
     </div>
-    <div class="col"></div>
   </div>
-  <div class="row mb-1">
-    <p class="mx-auto place">{{ weather['location']['name'] }}</p>
-  </div>
-  <div class="row">
-    <div class="col"></div>
-    <div class="col">
-      <h2 class="display-2 text-center"> {{ weather['current']['temp_c'] }}<sup>°C</sup></h2>
+  <div class="mt-5 pt-5">
+    <div class="row text-center">
+      <div class="col">{{ todayPlusOne }}</div>
+      <div class="col">{{ todayPlusTwo }}</div>
+      <div class="col">{{ todayPlusThree }}</div>
     </div>
-
-    <div class="col"></div>
-  </div>
-  <div class="row ">
-    <div class="col text-center">
-      <p class="day"> {{ this.today }} </p>
+    <div class="row text-center my-4">
+      <div class="col">
+        <img src="{{weather['forecast']['forecastday'][0]['day']['condition']['icon']}}">
+      </div>
+      <div class="col">
+        <img src="{{weather['forecast']['forecastday'][1]['day']['condition']['icon']}}">
+      </div>
+      <div class="col">
+        <img src="{{weather['forecast']['forecastday'][2]['day']['condition']['icon']}}">
+      </div>
+    </div>
+    <div class="row text-center mt-3">
+      <div class="col ">{{ weather['forecast']['forecastday'][0]['day']['avgtemp_c'] }} <sup>°C</sup></div>
+      <div class="col ">{{ weather['forecast']['forecastday'][1]['day']['avgtemp_c'] }} <sup>°C</sup></div>
+      <div class="col ">{{ weather['forecast']['forecastday'][2]['day']['avgtemp_c'] }} <sup>°C</sup></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col text-center"><a routerLink="/details">Details</a></div>
+      <div class="col"></div>
     </div>
   </div>
 </div>
-
-<div class="card mt-4 mx-auto p-4" id="forecast">
-  <div class="row ">
-    <div class="col d-flex align-items-center">
-      {{ todayPlusOne }}
+<div *ngIf="firstTimeUser">
+  <div class="row mx-auto welcome">
+    <div class="col-md-6 mx-auto pt-5">
+      <div class="text-center">
+        <h1 class="display-3 font-weight-lighter">Weather 2.0</h1>
+        <h2 class="text-center mt-5 font-weight-light">
+          Welcome!
+        </h2>
+        <p class="d-inline">Click on </p><img src="../../assets/img/menu.gif"> <p class="d-inline">for Settings to choose your location</p>
+      </div>
     </div>
-    <div class="col"></div>
-    <div class="col d-flex align-items-center ">
-      {{ weather['forecast']['forecastday'][0]['day']['avgtemp_c'] }} <sup>°C</sup>
-    </div>
-    <div class="col">
-      <img src= "{{weather['forecast']['forecastday'][0]['day']['condition']['icon']}}">
-    </div>
-  </div>
-  <div class="row ">
-    <div class="col d-flex align-items-center">
-      {{ todayPlusTwo }}
-    </div>
-    <div class="col"></div>
-    <div class="col d-flex align-items-center">
-      {{ weather['forecast']['forecastday'][1]['day']['avgtemp_c'] }} <sup>°C</sup>
-    </div>
-    <div class="col">
-      <img src= "{{weather['forecast']['forecastday'][0]['day']['condition']['icon']}}">
-    </div>
-  </div>
-  <div class="row ">
-    <div class="col d-flex align-items-center">
-      {{ todayPlusThree }}
-    </div>
-    <div class="col"></div>
-    <div class="col d-flex align-items-center">
-      {{ weather['forecast']['forecastday'][1]['day']['avgtemp_c'] }} <sup>°C</sup>
-    </div>
-    <div class="col">
-      <img src= "{{weather['forecast']['forecastday'][1]['day']['condition']['icon']}}">
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col"></div>
-    <div class="col text-center"><a routerLink="/details">Details</a></div>
-    <div class="col"></div>
   </div>
 </div>

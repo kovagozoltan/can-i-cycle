@@ -6,3 +6,7 @@
 .day, .place {
   font-size: 1.5em;
 }
+
+.welcome img {
+  width: 10%;
+}

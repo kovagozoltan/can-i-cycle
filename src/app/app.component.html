@@ -1,7 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Weather 2.0</a>
-
-
   <div class="btn-group" *ngIf="userLoggedIn">
       <div  class="btn bg-secondary navButton navButtonCursor text-white">
         {{username}}
@@ -9,8 +7,6 @@
       <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split navButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only">Toggle Dropdown</span>
       </button>
-
-
     <div class="dropdown-menu dropdown-menu-right text-center">
       <a class="dropdown-item" routerLink="/settings">Settings</a>
       <div class="dropdown-divider"></div>
@@ -19,8 +15,25 @@
       </button>
     </div>
   </div>
+</nav> -->
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Weather 2.0</a>
+  <button *ngIf="userLoggedIn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div *ngIf="userLoggedIn" class="collapse navbar-collapse font-weight-bold" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/settings">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-danger" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
 <div class="content">
   <router-outlet></router-outlet>
 </div>

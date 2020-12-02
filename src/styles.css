@@ -10,5 +10,5 @@ html {
 }
 
 body {
-  background-color: #def2fd !important;
+  max-width: 768px;
 }

@@ -9,7 +9,8 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'CanIRide';
+  title = 'Weather 2.0';
+
   username;
   userLoggedIn;
 

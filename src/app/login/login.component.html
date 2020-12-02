@@ -1,24 +1,28 @@
 <div class="row mx-auto">
   <div class="col-md-6 mx-auto pt-5">
-    <div class="card rounder-0 ">
-      <div class="card-header text-center bg-dark text-white">
-        <h1>Login</h1>
-      </div>
-      <div class="card-body">
+    <div class="text-center">
+      <h1 class="display-3 font-weight-lighter">Weather 2.0</h1>
+    <div >
+    <div class="text-center mt-5 pt-5">
+        <h2>Login</h2>
+      <div >
         <form class="form">
           <div class="form-group">
             <label>Email</label>
-            <input [(ngModel)]="loginUserData.email" name="email" type="email" required class="form-control rounded-0">
+            <input [(ngModel)]="loginUserData.email" name="email" type="email" required class="form-control text-center" autocomplete="off">
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input [(ngModel)]="loginUserData.password" name="password" type="password" required class="form-control rounded-0">
+            <input [(ngModel)]="loginUserData.password" name="password" type="password" required class="form-control text-center" autocomplete="off">
           </div>
-          <button (click)="loginUser()" type="button" class="btn btn-success">Login</button>
+          <button (click)="loginUser()" type="button" class="btn btn-outline-dark btn-block">Login</button>
         </form>
       </div>
-      <div class="card-footer bg-transparent text-center">
+      <div class="bg-transparent text-center mt-2">
         <a routerLink="/register">Create New Account</a>
+      </div>
+      <div class="error text-danger">
+        <p> {{ error }} </p>
       </div>
     </div>
   </div>

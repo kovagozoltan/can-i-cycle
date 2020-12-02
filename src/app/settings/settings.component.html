@@ -8,10 +8,13 @@
           <p *ngIf="!edit">{{settings.location}}</p>
           <input *ngIf="edit" [(ngModel)]="settings.location" name="location" type="location" required class="form-control rounded-0">
         </div>
-        <button *ngIf="!edit" class="btn btn-secondary" (click)="edit = true">Edit</button>
-        <button *ngIf="edit" (click)="applySettings()" type="button" class="btn btn-success">Apply</button>
-        <button *ngIf="edit" (click)="edit = false" type="button" class="btn btn-danger">Cancel</button>
+        <button *ngIf="!edit" class="btn btn-outline-secondary" (click)="edit = true">Edit</button>
+        <button *ngIf="edit" (click)="applySettings()" type="button" class="btn btn-outline-success">Apply</button>
+        <button *ngIf="edit" (click)="edit = false" type="button" class="btn btn-outline-danger">Cancel</button>
       </form>
+        <div class="text-danger" *ngIf="error && edit">
+          <p> location can not be empty </p>
+        </div>
     </div>
     <div class="col"></div>
   </div>

@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginUserData = { email: '', password: ''};
-
+  error
 
   constructor(private AUTHSERVICE: AuthService, private ROUTER: Router) { }
 
@@ -20,13 +20,12 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.AUTHSERVICE.loginUser(this.loginUserData).subscribe(
       (response: any) => {
-        console.log(response);
         localStorage.setItem('token', response.token);
         localStorage.setItem('username', response.username);
         this.ROUTER.navigate(['/weather']);
       },
       error => {
-        console.log(error);
+        this.error = error.error.message;
       }
     );
   }
