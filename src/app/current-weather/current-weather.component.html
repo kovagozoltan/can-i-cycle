@@ -1,54 +1,54 @@
 <div *ngIf="!firstTimeUser">
-  <div class="text-center mt-5 mb-5">
-    <p class="display-4"> {{ weather['current']['condition']['text'] }} </p>
+  <div class="text-center">
+    <p class="display-4 mb-0"> {{ currentConditionText }} </p>
   </div>
   <div class="container">
     <div class="row">
       <div class="col"></div>
       <div class="col">
         <div class="col d-flex align-items-center">
-          <img src="{{ weather['current']['condition']['icon'] }}" class="mx-auto">
+          <img src="{{ currentConditionIcon }}" class="mx-auto">
         </div>
       </div>
       <div class="col"></div>
     </div>
     <div class="row mb-1">
-      <p class="mx-auto place">{{ weather['location']['name'] }}</p>
+      <p class="mx-auto mb-0 place">{{ location }}</p>
     </div>
     <div class="row">
       <div class="col"></div>
       <div class="col">
-        <h2 class="display-2 text-center"> {{ weather['current']['temp_c'] }}<sup>°C</sup></h2>
+        <h2 class="display-3 text-center"> {{ currentTemp }}<sup>°C</sup></h2>
       </div>
       <div class="col"></div>
     </div>
     <div class="row ">
       <div class="col text-center">
-        <p class="day"> {{ this.today }} </p>
+        <p class="day mb-0"> {{ this.today }} </p>
       </div>
     </div>
   </div>
-  <div class="mt-5 pt-5">
+  <div class="">
     <div class="row text-center">
       <div class="col">{{ todayPlusOne }}</div>
       <div class="col">{{ todayPlusTwo }}</div>
       <div class="col">{{ todayPlusThree }}</div>
     </div>
-    <div class="row text-center my-4">
-      <div class="col">
-        <img src="{{weather['forecast']['forecastday'][0]['day']['condition']['icon']}}">
+    <div class="row text-center">
+      <div class="col icon">
+        <img src="{{ forecastDay0Icon }}">
       </div>
-      <div class="col">
-        <img src="{{weather['forecast']['forecastday'][1]['day']['condition']['icon']}}">
+      <div class="col icon">
+        <img src="{{ forecastDay0Icon }}">
       </div>
-      <div class="col">
-        <img src="{{weather['forecast']['forecastday'][2]['day']['condition']['icon']}}">
+      <div class="col icon">
+        <img src="{{ forecastDay0Icon }}">
       </div>
     </div>
-    <div class="row text-center mt-3">
-      <div class="col ">{{ weather['forecast']['forecastday'][0]['day']['avgtemp_c'] }} <sup>°C</sup></div>
-      <div class="col ">{{ weather['forecast']['forecastday'][1]['day']['avgtemp_c'] }} <sup>°C</sup></div>
-      <div class="col ">{{ weather['forecast']['forecastday'][2]['day']['avgtemp_c'] }} <sup>°C</sup></div>
+    <div class="row text-center">
+      <div class="col ">{{ forecastDay0 }} <sup>°C</sup></div>
+      <div class="col ">{{ forecastDay1 }} <sup>°C</sup></div>
+      <div class="col ">{{ forecastDay2 }} <sup>°C</sup></div>
     </div>
     <div class="row">
       <div class="col"></div>

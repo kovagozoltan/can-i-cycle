@@ -8,6 +8,7 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { RegisterComponent } from './register/register.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DetailsComponent } from './details/details.component';
+import { RateComponent } from './rate/rate.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'details',
     component: DetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'rate',
+    component: RateComponent,
     canActivate: [AuthGuard]
   }
 ];

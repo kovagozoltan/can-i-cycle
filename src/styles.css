@@ -5,8 +5,10 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import './weather-icons/weather-icons.min.css';
 
-html {
-  width: 100vw;
+
+body, html{
+  margin:0;
+  padding:0;
 }
 
 body {

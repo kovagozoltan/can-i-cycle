@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col-8 text-center">
+    <p>You've been on a walk or a bicycle ride? Rate the weather and you will be able to get personalized weather recomendations for your activity in the future</p>
+  </div>
+  <div class="col"></div>
+</div>
+<div class="row ">
+  <div class="col text-danger p-0 text-center">bad</div>
+  <div class="col-6"></div>
+  <div class="col text-success p-0 text-center">good</div>
+</div>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-10">
+    <form>
+      <div class="form-group">
+        <label for="temperature">How was the temperature?</label>
+        <input type="range" class="form-control-range" id="temperature" name="temperature" [(ngModel)]='temperature'>
+      </div>
+      <div class="form-group">
+        <label for="wind">How was the wind?</label>
+        <input type="range" class="form-control-range" id="wind" name="wind" [(ngModel)]='wind'>
+      </div>
+      <div class="form-group">
+        <label for="rain">How was the rain?</label>
+        <input type="range" class="form-control-range" id="rain" name="rain" [(ngModel)]='rain'>
+      </div>
+      <select class="custom-select my-1 dropup" id="daySelect" name="selectedDay" [(ngModel)]='selectedDay' required >
+        <option value="" selected>Please select</option>
+        <option *ngFor="let day of week" value={{day}}> {{ day }} </option>
+      </select>
+      <select class="custom-select my-1" id="daySelect" name="selectedHour" [(ngModel)]='selectedHour' required>
+        <option value="" selected>Please select</option>
+        <option *ngFor="let hour of hours" value={{hour}}> {{ hour }} </option>
+      </select>
+      <button (click)="submitWeather()" type="button" class="btn btn-outline-dark btn-block mb-5">Submit</button>
+    </form>
+  </div>
+  <div class="col"></div>
+</div>

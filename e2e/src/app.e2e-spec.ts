@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('CanIRide app is running!');
+    expect(page.getTitleText()).toEqual('can-i-cycle app is running!');
   });
 
   afterEach(async () => {

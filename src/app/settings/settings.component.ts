@@ -15,7 +15,7 @@ export class SettingsComponent implements OnInit {
   constructor(private HTTP: HttpClient) { }
 
   ngOnInit() {
-    this.HTTP.get<any>('http://localhost:3000/settings').subscribe( data => {
+    this.HTTP.get<any>('http://newweather-env.eba-hfxmu3rp.eu-west-3.elasticbeanstalk.com/settings').subscribe( data => {
       if (data.message.settings) {
         this.settings = data.message.settings;
       }
@@ -25,11 +25,13 @@ export class SettingsComponent implements OnInit {
   applySettings() {
     if (this.settings.location) {
       this.error = false;
-      this.HTTP.post('http://localhost:3000/settings', this.settings).subscribe( data => {
-      });
+      this.HTTP.post('http://newweather-env.eba-hfxmu3rp.eu-west-3.elasticbeanstalk.com/settings', this.settings).subscribe( data => {
+      console.log(data);
+    });
       this.edit = false;
     } else {
       this.error = true;
     }
+
   }
 }

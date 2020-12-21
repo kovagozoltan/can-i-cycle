@@ -14,11 +14,11 @@ export class AuthService {
   }
 
   registerUser(registerUserData) {
-    return this.HTTP.post('http://localhost:3000/register', registerUserData);
+    return this.HTTP.post('http://newweather-env.eba-hfxmu3rp.eu-west-3.elasticbeanstalk.com/register', registerUserData);
   }
 
   loginUser(loginUserData) {
-    return this.HTTP.post('http://localhost:3000/login', loginUserData);
+    return this.HTTP.post('http://newweather-env.eba-hfxmu3rp.eu-west-3.elasticbeanstalk.com/login', loginUserData);
   }
 
   logoutUser() {

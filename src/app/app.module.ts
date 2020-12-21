@@ -15,6 +15,7 @@ import { AuthService } from './services/auth.service';
 import { WeatherService } from './services/weather.service';
 import { SettingsComponent } from './settings/settings.component';
 import { DetailsComponent } from './details/details.component';
+import { RateComponent } from './rate/rate.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DetailsComponent } from './details/details.component';
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    DetailsComponent
+    DetailsComponent,
+    RateComponent
   ],
   imports: [
     BrowserModule,
