@@ -30,4 +30,18 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  loginGuest(){
+    this.loginUserData = {email: 'guest@guest.com', password: 'guestpassword'}
+    this.AUTHSERVICE.loginUser(this.loginUserData).subscribe(
+      (response: any) => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('username', response.username);
+        this.ROUTER.navigate(['/weather']);
+      },
+      error => {
+        this.error = error.error.message;
+      }
+    );
+  }
+
 }

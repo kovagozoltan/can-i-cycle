@@ -18,8 +18,9 @@
           <button (click)="loginUser()" type="button" class="btn btn-outline-dark btn-block">Login</button>
         </form>
       </div>
-      <div class="bg-transparent text-center mt-2">
+      <div class="bg-transparent d-flex justify-content-around mt-2">
         <a routerLink="/register">Create New Account</a>
+        <a (click)="loginGuest()" class="text-primary" role="button">Guest</a>
       </div>
       <div class="error text-danger">
         <p> {{ error }} </p>
